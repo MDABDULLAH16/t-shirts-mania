@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Cart = () => {
+const Cart = ({ cart }) => {
     return (
         <div>
-            <h2>this is cart Components</h2>
+            <h2>this is cart Components{cart.length}</h2>
+            {
+                cart.map(tShirt => <p>{tShirt.name}
+                    <button>x</button>
+                </p>)
+            }
+
         </div>
     );
 };
