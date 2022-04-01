@@ -9,9 +9,15 @@ import './Home.css'
 const Home = () => {
     const [tShirts, setTShirts] = useTShirts();
     const [cart, setCart] = useState([]);
+
     const handleAddToCart = selection => {
         const newCart = [...cart, selection];
         setCart(newCart)
+    }
+    const handleRemoveFromCart = selection => {
+        const rest = cart.filter(tShirts => tShirts._id !== selection._id);
+        setCart(rest)
+
     }
 
     return (
@@ -27,6 +33,7 @@ const Home = () => {
             </div>
             <div className="cart-container">
                 <Cart
+                    handleRemoveFromCart={handleRemoveFromCart}
                     cart={cart}
                 ></Cart>
             </div>
